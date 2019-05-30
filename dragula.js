@@ -398,8 +398,8 @@ function dragula(initialContainers, options) {
       return;
     }
 
-    if (drake.drag && drake.drag(item, dropTarget, clientX, clientY, _mirror)) {
-    } else {
+    var handled = drake.drag && drake.drag(item, dropTarget, clientX, clientY, _mirror);
+    if (!handled) {
       if (
         (reference === null && changed) ||
         reference !== item &&
